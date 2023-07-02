@@ -1,0 +1,14 @@
+{
+  "matieres": [
+    {
+      "id": 1,
+      "nom": "Mathématiques",
+      "professeur_id": 1
+    },
+    {
+      "id": 2,
+      "nom": "Histoire",
+      "professeur_id": 2
+    }
+  ]
+}

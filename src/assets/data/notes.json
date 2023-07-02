@@ -1,0 +1,28 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "etudiant_id": 1,
+      "matiere_id": 1,
+      "valeur": 15
+    },
+    {
+      "id": 2,
+      "etudiant_id": 1,
+      "matiere_id": 2,
+      "valeur": 18
+    },
+    {
+      "id": 3,
+      "etudiant_id": 2,
+      "matiere_id": 1,
+      "valeur": 12
+    },
+    {
+      "id": 4,
+      "etudiant_id": 2,
+      "matiere_id": 2,
+      "valeur": 16
+    }
+  ]
+}
