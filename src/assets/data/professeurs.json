@@ -1,0 +1,18 @@
+{
+  "professeurs": [
+    {
+      "id": 1,
+      "nom": "Michel",
+      "prenom": "Buffa",
+      "adresse": "France",
+      "telephone": "555-9012"
+    },
+    {
+      "id": 2,
+      "nom": "Rabenanahary",
+      "prenom": "Rojo",
+      "adresse": "Andoharanofotsy",
+      "telephone": "0331245789"
+    }
+  ]
+}

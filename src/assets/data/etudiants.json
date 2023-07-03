@@ -1,0 +1,18 @@
+{
+  "etudiants": [
+    {
+      "id": 1,
+      "nom": "Rakoto",
+      "prenom": "Andrianaina",
+      "adresse": "Anosizato",
+      "telephone": "0331234567"
+    },
+    {
+      "id": 2,
+      "nom": "Rakotovao",
+      "prenom": "Johan",
+      "adresse": "Andoharanofotsy",
+      "telephone": "0339876543"
+    }
+  ]
+}
