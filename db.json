@@ -1,0 +1,181 @@
+{
+  "musica": [
+    {
+      "id": 1,
+      "musicId": "1",
+      "imageUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Ayra_Starr_%28cropped%29.png/1200px-Ayra_Starr_%28cropped%29.png",
+      "singer": "Arya Starr",
+      "title": "Rush",
+      "dateOut": "2023-05-01",
+      "albumId": "A1",
+      "local": true,
+      "song": "108 - Shakira - Monotonía.mp3",
+      "idYoutube": "IQw-4JABPCM"
+    },
+    {
+      "id": 2,
+      "musicId": "2",
+      "imageUrl": "https://i.skyrock.net/8936/40388936/pics/3270356976_1_8_VmwUG9t0.jpg",
+      "singer": "Booba - Benash",
+      "title": "Validée",
+      "dateOut": "2023-05-02",
+      "albumId": "A2",
+      "local": true,
+      "song": "CEASAR - RAISO (Lyrics Gasy 2022)(MP3_320K).mp3",
+      "idYoutube": "IQw-4JABPCM"
+    },
+    {
+      "id": 3,
+      "musicId": "3",
+      "imageUrl": "https://i.ytimg.com/vi/-LDpPkbGrKU/maxresdefault.jpg",
+      "singer": "INS",
+      "title": "Safe",
+      "dateOut": "2023-05-03",
+      "albumId": "A3",
+      "local": true,
+      "song": "Bad Gyal.m4a",
+      "idYoutube": "IQw-4JABPCM"
+    },
+    {
+      "id": 4,
+      "musicId": "4",
+      "imageUrl": "https://kotta.fr/wp-content/uploads/2021/09/kalash-300x300.jpg",
+      "singer": "Kalash",
+      "title": "Ma tendre scène",
+      "dateOut": "2023-05-01",
+      "albumId": "A4",
+      "local": false,
+      "song": "https://mariongrandvincent.github.io/HTML-Personal-website/img-codePen/kygo-stole-the-show.mp3",
+      "idYoutube": "IQw-4JABPCM"
+    },
+    {
+      "id": 5,
+      "musicId": "5",
+      "imageUrl": "https://yt3.googleusercontent.com/nr3Bjv70CuDgWselV5iF1ZHcvbKrcr1r8aJMsojBDQaIRF5cg2l5wxRU2kdLmwyiPKalVswWuPw=s900-c-k-c0x00ffffff-no-rj",
+      "singer": "Maud Elka - Low Jay",
+      "title": "Comme avant",
+      "dateOut": "2023-05-02",
+      "albumId": "A5",
+      "local": false,
+      "song": "https://mariongrandvincent.github.io/HTML-Personal-website/img-codePen/kygo-stole-the-show.mp3",
+      "idYoutube": "IQw-4JABPCM"
+    },
+    {
+      "id": 7,
+      "musicId": "12",
+      "imageUrl": "Aurora.JPG",
+      "singer": "Aurora",
+      "title": "RunAway",
+      "dateOut": "2023-05-01",
+      "albumId": "A4",
+      "local": true,
+      "localImage": true,
+      "localvideo": true,
+      "idYoutube": "r0McrrrFNtA",
+      "song": "AURORA - Runaway.mp3",
+      "videoLocal": "../src/assets/AURORARunaway.mp4",
+      "dialog": false
+    },
+    {
+      "id": 8,
+      "musicId": "14",
+      "imageUrl": "AuroraRunaway.JPG",
+      "singer": "Aurora",
+      "title": "RunAway Demo-version",
+      "dateOut": "2023-05-01",
+      "albumId": "A4",
+      "local": true,
+      "localImage": true,
+      "localvideo": true,
+      "song": "Aurora - Runaway Demo Version.mp3",
+      "idYoutube": "gMzpTGO6eRs",
+      "videoLocal": "../src/assets/ThoseEyes.mp4",
+      "dialog": false
+    },
+    {
+      "id": 9,
+      "musicId": "15",
+      "imageUrl": "Olivia.webp",
+      "singer": "Olivia Rodrigo",
+      "title": "Deja Vu?",
+      "dateOut": "2023-05-01",
+      "albumId": "A4",
+      "local": true,
+      "localImage": true,
+      "localvideo": true,
+      "song": "Olivia Rodrigo - deja vu.mp3",
+      "idYoutube": "IQw-4JABPCM",
+      "videoLocal": "../src/assets/Rema - Calm Down (Official Music Video) - YouTube.mkv",
+      "dialog": false
+    },
+    {
+      "imageUrl": "sfsqf",
+      "singer": "fddsfs",
+      "title": "fdsdf",
+      "dateOut": "sfsff",
+      "albumId": "",
+      "local": true,
+      "localImage": true,
+      "song": "fsfsff",
+      "idYoutube": "mVh4JQ1k-Is",
+      "dialog": false,
+      "id": 10
+    },
+    {
+      "imageUrl": "",
+      "singer": "Olivia Rodrigo",
+      "title": "Deja vu",
+      "dateOut": "zarzarza",
+      "albumId": "",
+      "local": true,
+      "localImage": true,
+      "song": "Olivia.webp",
+      "idYoutube": "mVh4JQ1k-Is",
+      "dialog": false,
+      "id": 11
+    },
+    {
+      "imageUrl": "",
+      "singer": "finoana",
+      "title": "finoana",
+      "dateOut": "",
+      "albumId": "",
+      "local": true,
+      "localImage": true,
+      "song": "9QNfyrvaPq4",
+      "idYoutube": "9QNfyrvaPq4",
+      "dialog": false,
+      "id": 12
+    },
+    {
+      "id": 13,
+      "musicId": "13",
+      "singer": "Néa",
+      "title": "Some Say",
+      "dateOut": "2023-05-01",
+      "albumId": "",
+      "local": true,
+      "song": "https://audio.jukehost.co.uk/hIGMaI2PPthJ2eH82Isb2QBzeDmqBkKr",
+      "idYoutube": "w8AYmSdaQZI",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy2BS-LxBCtAec143vogk4snodMMYHTjOGkiQ-CSBG8DBuE_ROtc113fL1RzW7gLpyh7A&usqp=CAU",
+      "dialog": false
+    }
+  ],
+  "Authentification": [
+    {
+      "id": "id1",
+      "Email": "ari@auxipress.be",
+      "Password": "password"
+    },
+    {
+      "Email": "ariel@madamonitor.mada",
+      "Password": "eT50Xj",
+      "id": "0LTkPt_"
+    },
+    {
+      "Email": "johan@gmail.com",
+      "Password": "johan",
+      "id": "N5Lv7NX"
+    }
+  ]
+}

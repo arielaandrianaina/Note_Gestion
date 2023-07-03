@@ -106,7 +106,6 @@
         showSuccessNotification: false,
       }),
         methods: {
-          ...mapActions(['login']), // Assuming you have a Vuex action called 'login'
           submitForm() {
             console.log('Submit form called');
             const credentials = {
@@ -118,8 +117,6 @@
           
           apiService.getLoginApiData(credentials)
             .then(response => {
-              console.log('Making API request to authenticate user:', credentials); // Add this console log statement
-              this.$store.commit('setIsAuthenticated', true);
               this.$store.commit('setUsername', username);
               this.$router.push({name: 'album'});
             })
