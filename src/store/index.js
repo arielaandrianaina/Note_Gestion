@@ -4,6 +4,7 @@ import { createStore } from 'vuex';
 const store = createStore({
   state: {
     username: '',
+    Email:'',
     isAuthenticated: false,
     userData: null,
     isLoggedIn: false,
@@ -12,6 +13,10 @@ const store = createStore({
     setUsername(state, username) {
       state.username = username;
       console.log('Setting username:', username); 
+    },
+    setEmail(state, Email) {
+      state.Email = Email;
+      console.log('Setting Email:', Email); 
     },
     setIsAuthenticated(state, isAuthenticated) {
       state.isAuthenticated = isAuthenticated;

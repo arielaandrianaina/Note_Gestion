@@ -1,7 +1,7 @@
 <template>
-<v-app class="accueil">
+<!-- <v-app class="accueil"> -->
   
-    <div >
+    <div class="accueil">
       
     </div>
     <div class="custom-snackbar-container">
@@ -14,7 +14,7 @@
       Welcome  {{ username.toUpperCase() }}!!!
     </v-snackbar>
   </div>
-</v-app>
+<!-- </v-app> -->
   
 </template>
 <script>

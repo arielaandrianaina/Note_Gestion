@@ -17,7 +17,7 @@
               type="password"
             ></v-text-field>
       
-            <v-btn type="submit" block class="text-color mt-2" color="#263238" style="border-radius: 10px;">Submit</v-btn>
+            <v-btn type="submit" block class="text-color mt-2" color="#546e7a" style="border-radius: 10px; ">Submit</v-btn>
           </v-form>
         </v-sheet>
     </div>
@@ -45,7 +45,7 @@
               :error-messages="confirmPasswordError"
             ></v-text-field>
 
-            <v-btn type="submit" block class="text-color mt-2" color="#263238" style="border-radius: 10px;">Register</v-btn>
+            <v-btn type="submit" block class="text-color mt-2" color="#546e7a" style="border-radius: 10px;">Register</v-btn>
           </v-form>
         </v-sheet>
     </div>
@@ -107,17 +107,24 @@
       }),
         methods: {
           submitForm() {
-            console.log('Submit form called');
+             // Check if the email and password are valid
+          if (!this.Email || !this.Password) {
+            // Show an error message or take any other appropriate action
+            console.error('Email and Password are required.');
+            return;
+          }
             const credentials = {
             Email: this.Email,
             Password: this.Password
           };
           const emailParts = credentials.Email.split('@'); 
           const username = emailParts[0];
+          const Email = this.Email;
           
           apiService.getLoginApiData(credentials)
             .then(response => {
               this.$store.commit('setUsername', username);
+              this.$store.commit('setEmail', Email);
               this.$router.push({name: 'Home'});
             })
             .catch(error => {

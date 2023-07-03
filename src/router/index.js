@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import music from '../components/music.vue';
+import Note from '../components/Note.vue';
 import login from '../components/login.vue';
 import Home from '../components/Home.vue';
 import deconnexion from '../components/deconnexion.vue';
@@ -8,9 +8,9 @@ import deconnexion from '../components/deconnexion.vue';
 
 const routes = [
   {
-    path: '/music',
-    name: 'music',
-    component: music,
+    path: '/Note',
+    name: 'Note',
+    component: Note,
   },
   {
     path: '/',
