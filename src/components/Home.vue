@@ -33,9 +33,11 @@ import { useStore } from 'vuex';
 </script>
 <style>
 .accueil{
-    background-image: url("../src/assets/REAL.png");
-    background-color: rgb(24, 21, 21);
-    background-size:auto;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../src/assets/note.png");
+    /* background-color: rgb(24, 21, 21); */
+    /* background-size:40%; */
     background-repeat: no-repeat;
     background-position: center center;
    

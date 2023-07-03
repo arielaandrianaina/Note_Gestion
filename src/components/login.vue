@@ -118,7 +118,7 @@
           apiService.getLoginApiData(credentials)
             .then(response => {
               this.$store.commit('setUsername', username);
-              this.$router.push({name: 'album'});
+              this.$router.push({name: 'Home'});
             })
             .catch(error => {
             console.error(error);

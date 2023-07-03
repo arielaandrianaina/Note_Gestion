@@ -12,6 +12,11 @@ export default {
 
     };
   },
+  computed: {
+    isLoginPage() {
+      return this.$route.path === '/';
+    },
+  },
   methods: {
      ...mapMutations(['setIsAuthenticated']),
     logout() {
@@ -30,20 +35,20 @@ export default {
   
   <v-app>
   <v-app-bar app color="#424242" dark>
-  <v-btn value="recent" color="white">
+  <v-btn value="recent" color="white"  :disabled="isLoginPage">
       <router-link to="/music" class="custom-link">Musics</router-link>
   </v-btn>
 
-  <v-btn value="favorites" color="#fff">
-    <router-link to="/" class="custom-link">Favorites</router-link>
+  <v-btn value="favorites" color="#fff"  :disabled="isLoginPage">
+    <router-link to="/note" class="custom-link">note</router-link>
   </v-btn>
 
-  <v-btn value="nearby" color="#fff">
-   <router-link to="/album" class="custom-link">Album</router-link>
+  <v-btn value="nearby" color="#fff"  :disabled="isLoginPage">
+   <router-link to="/prof" class="custom-link">Professeur</router-link>
   </v-btn>
   <v-spacer></v-spacer>
 
-  <v-btn  value="nearby" color="#fff" class="text-right" @click="logout">
+  <v-btn  value="nearby" color="#fff" class="text-right" @click="logout" :disabled="isLoginPage" v-if="!isLoginPage">
       Déconnexion
   </v-btn>
   </v-app-bar>
