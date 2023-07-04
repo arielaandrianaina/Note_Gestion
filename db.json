@@ -4,6 +4,16 @@
       "id": "id1",
       "Email": "ari@auxipress.be",
       "Password": "password"
+    },
+    {
+      "id": "id2",
+      "Email": "Andrianaina@gmail.com",
+      "Password": "password"
+    },
+    {
+      "id": "id3",
+      "Email": "Michel@gmail.com",
+      "Password": "password"
     }
   ],
   "etudiants": [
@@ -29,13 +39,12 @@
   "matieres": [
     {
       "id": 1,
-      "nom": "Mathématiques",
-      "professeur_id": 1
+      "nom": "Mathématiques"
+     
     },
     {
       "id": 2,
-      "nom": "Histoire",
-      "professeur_id": 2
+      "nom": "Histoire"
     }
   ],
   "notes": [
@@ -72,7 +81,8 @@
       "Email": "Michel@gmail.com",
       "Password": "password",
       "adresse": "France",
-      "telephone": "555-9012"
+      "telephone": "555-9012",
+      "matiere_id": 1
     },
     {
       "id": 2,
@@ -81,7 +91,8 @@
       "Email": "Rojo@gmail.com",
       "Password": "password",
       "adresse": "Andoharanofotsy",
-      "telephone": "0331245789"
+      "telephone": "0331245789",
+      "matiere_id": 2
     }
   ]
 }

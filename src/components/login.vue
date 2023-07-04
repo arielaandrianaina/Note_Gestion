@@ -79,7 +79,7 @@
   <script>
   import { mapActions } from 'vuex';
   import apiService from '../apiService';
-  
+  import axios from 'axios';
 
     export default {
       data: () => ({
@@ -104,32 +104,89 @@
         confirm: '',
         confirmPasswordError: '',
         showSuccessNotification: false,
+        jsonData: null,
+        loaded: false,
       }),
+      created() {
+        this.loadData(); // Appel de la méthode pour charger les données
+      },
         methods: {
+          loadData() {
+          axios.get('http://localhost:3000/db')
+            .then(response => {
+              this.jsonData = response.data; // Stockez les données JSON dans la propriété jsonData
+              this.loaded = true; 
+            })
+            .catch(error => {
+              console.error('Erreur lors du chargement des données JSON:', error);
+            });
+        },
           submitForm() {
-             // Check if the email and password are valid
+          // Check if the email and password are valid
           if (!this.Email || !this.Password) {
             // Show an error message or take any other appropriate action
             console.error('Email and Password are required.');
+            return;
+          }
+           // Check if jsonData is available before accessing its properties
+          if (!this.jsonData || !this.jsonData.Authentification) {
+            console.error('Data is not loaded yet.');
             return;
           }
             const credentials = {
             Email: this.Email,
             Password: this.Password
           };
-          const emailParts = credentials.Email.split('@'); 
-          const username = emailParts[0];
-          const Email = this.Email;
+          // Recherchez l'utilisateur dans les données d'authentification
+          const user = this.jsonData.Authentification.find(
+            (user) => user.Email === this.Email && user.Password === this.Password
+          );
+
+          if (user) {
+            // Vérifiez si l'utilisateur est un étudiant ou un professeur
+            const etudiant = this.jsonData.etudiants.find((etudiant) => etudiant.Email === user.Email);
+            const professeur = this.jsonData.professeurs.find((professeur) => professeur.Email === user.Email);
+
+            if (etudiant) {
+              const emailParts = credentials.Email.split('@'); 
+              const username = emailParts[0];
+              const Email = this.Email;
           
-          apiService.getLoginApiData(credentials)
-            .then(response => {
-              this.$store.commit('setUsername', username);
-              this.$store.commit('setEmail', Email);
-              this.$router.push({name: 'Home'});
-            })
-            .catch(error => {
-            console.error(error);
-            });
+              apiService.getLoginApiData(credentials)
+                .then(response => {
+                  this.$store.commit('setUsername', username);
+                  this.$store.commit('setEmail', Email);
+                  this.$router.push({name: 'Home'});
+                })
+                .catch(error => {
+                console.error(error);
+                });
+              console.log('Authentifié en tant qu\'étudiant:', etudiant.prenom, etudiant.nom);
+              // Effectuer des actions spécifiques pour l'étudiant (par exemple, rediriger vers la page d'accueil des étudiants)
+            } else if (professeur) {
+              const emailParts = credentials.Email.split('@'); 
+              const username = emailParts[0];
+              const Email = this.Email;
+          
+              apiService.getLoginApiData(credentials)
+                .then(response => {
+                  this.$store.commit('setUsername', username);
+                  this.$store.commit('setEmail', Email);
+                  this.$router.push({name: 'Home'});
+                })
+                .catch(error => {
+                console.error(error);
+                });
+              console.log('Authentifié en tant que professeur:', professeur.prenom, professeur.nom);
+              // Effectuer des actions spécifiques pour le professeur (par exemple, rediriger vers la page d'accueil des professeurs)
+            } else {
+              console.error('Rôle d\'utilisateur inconnu');
+            }
+          } else {
+            console.error('Email ou mot de passe incorrect.');
+          }
+        
+         
         },
         submitRegister() {
           if (this.$refs.form.validate()) {

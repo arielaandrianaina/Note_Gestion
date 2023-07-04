@@ -17,7 +17,7 @@ export default {
       items: [
         { text: 'My Files', icon: 'mdi-folder', to: '/Home' , textClass: 'text'},
         { text: 'Shared with me', icon: 'mdi-account-multiple' , to: '/deconnexion', textClass: 'text'},
-        { text: 'Starred', icon: 'mdi-star' , to: '/Note', textClass: 'text'},
+        { text: 'Note Eleve', icon: 'mdi-note' , to: '/Note', textClass: 'text'},
         { text: 'Recent', icon: 'mdi-history', textClass: 'text' },
         { text: 'Offline', icon: 'mdi-check-circle' , textClass: 'text'},
         { text: 'Uploads', icon: 'mdi-upload', textClass: 'text' },
