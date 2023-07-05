@@ -17,11 +17,14 @@ export default {
       items: [
         { text: 'My Files', icon: 'mdi-folder', to: '/Home' , textClass: 'text'},
         { text: 'Shared with me', icon: 'mdi-account-multiple' , to: '/deconnexion', textClass: 'text'},
-        { text: 'Note Eleve', icon: 'mdi-note' , to: '/Note', textClass: 'text'},
         { text: 'Recent', icon: 'mdi-history', textClass: 'text' },
         { text: 'Offline', icon: 'mdi-check-circle' , textClass: 'text'},
         { text: 'Uploads', icon: 'mdi-upload', textClass: 'text' },
         { text: 'deconnexion', icon: 'mdi-logout', textClass: 'text' },
+      ],
+      studentItems: [
+        { text: 'Note Eleve', icon: 'mdi-note', to: '/Note', textClass: 'text' },
+        { text: 'deconnexion', icon: 'mdi-logout', to: '/deconnexion', textClass: 'text' },
       ],
     };
   },
@@ -36,7 +39,17 @@ export default {
     Email(){
       const store = useStore();
       return store.state.Email;
-    }
+    },
+    userRole() {
+      return this.$store.state.userRole; // Assuming you have 'userRole' stored in the Vuex state
+    },
+    visibleItems() {
+      if (this.userRole === 'etudiant') {
+        return this.studentItems;
+      } else {
+        return this.items;
+      }
+    },
   },
   methods: {
      ...mapMutations(['setIsAuthenticated']),
@@ -110,7 +123,7 @@ export default {
           nav
         >
           <v-list-item
-            v-for="(item, i) in items"
+            v-for="(item, i) in visibleItems"
             :key="i"
             :value="item"
             color="white"
@@ -135,15 +148,6 @@ export default {
     </v-layout>
 </template>
 <style>
-/* .custom-link {
-  text-decoration: none; 
-  color: inherit; 
-}
-.content{
-  width: 100%;
-  height: 100%;
-  margin-top: 0%;
-} */
 .text{
   color: #fff;
 }

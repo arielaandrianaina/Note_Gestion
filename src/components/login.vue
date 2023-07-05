@@ -80,6 +80,7 @@
   import { mapActions } from 'vuex';
   import apiService from '../apiService';
   import axios from 'axios';
+  import { mapMutations } from 'vuex';
 
     export default {
       data: () => ({
@@ -109,8 +110,11 @@
       }),
       created() {
         this.loadData(); // Appel de la méthode pour charger les données
+        
       },
         methods: {
+          ...mapMutations(['setUserRole']), // Add this line to use the setUserRole mutation
+
           loadData() {
           axios.get('http://localhost:3000/db')
             .then(response => {
@@ -148,6 +152,7 @@
             const professeur = this.jsonData.professeurs.find((professeur) => professeur.Email === user.Email);
 
             if (etudiant) {
+              this.setUserRole('etudiant'); // Dispatch the mutation to set userRole to 'etudiant'
               const emailParts = credentials.Email.split('@'); 
               const username = emailParts[0];
               const Email = this.Email;
@@ -164,6 +169,7 @@
               console.log('Authentifié en tant qu\'étudiant:', etudiant.prenom, etudiant.nom);
               // Effectuer des actions spécifiques pour l'étudiant (par exemple, rediriger vers la page d'accueil des étudiants)
             } else if (professeur) {
+              this.setUserRole('professeur');
               const emailParts = credentials.Email.split('@'); 
               const username = emailParts[0];
               const Email = this.Email;

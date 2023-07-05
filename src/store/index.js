@@ -8,6 +8,7 @@ const store = createStore({
     isAuthenticated: false,
     userData: null,
     isLoggedIn: false,
+    userRole: '', // Initialize as an empty string
   },
   mutations: {
     setUsername(state, username) {
@@ -26,6 +27,9 @@ const store = createStore({
     clearUserData(state) {
       state.userData = null; // Réinitialiser les données utilisateur à null ou à une valeur vide selon votre structure de données
       // Réinitialiser d'autres données utilisateur si nécessaire
+    },
+    setUserRole(state, role) {
+      state.userRole = role;
     },
   }
 });
