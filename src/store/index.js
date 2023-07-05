@@ -5,6 +5,7 @@ const store = createStore({
   state: {
     username: '',
     Email:'',
+    id:'',
     isAuthenticated: false,
     userData: null,
     isLoggedIn: false,
@@ -14,6 +15,10 @@ const store = createStore({
     setUsername(state, username) {
       state.username = username;
       console.log('Setting username:', username); 
+    },
+    setId(state, id){
+      state.id = id;
+      console.log('Setting id:', id); 
     },
     setEmail(state, Email) {
       state.Email = Email;

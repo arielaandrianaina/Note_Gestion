@@ -12,6 +12,7 @@
       location="bottom right"
     >
       Welcome  {{ username.toUpperCase() }}!!!
+      {{ id }}
     </v-snackbar>
   </div>
 <!-- </v-app> -->
@@ -27,6 +28,10 @@ import { useStore } from 'vuex';
     username() {
       const store = useStore();
       return store.state.username;
+    },
+    id() {
+      const store = useStore();
+      return store.state.id;
     },
   }
 };

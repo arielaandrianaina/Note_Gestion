@@ -14,6 +14,11 @@
       "id": "id3",
       "Email": "Michel@gmail.com",
       "Password": "password"
+    },
+    {
+      "id": "id4",
+      "Email": "Johan@gmail.com",
+      "Password": "password"
     }
   ],
   "etudiants": [

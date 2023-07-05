@@ -1,4 +1,5 @@
 <template>
+   <div>
   <h2 class="title">Note de {{ username }}</h2>
   <v-row justify="center">
   <v-col
@@ -31,30 +32,61 @@
   </v-card>
 </v-col>
   </v-row>
+</div>
 </template>
 <script>
 import apiService from '../apiService';
 import { useStore } from 'vuex';
+import { ref } from 'vue';
+import { computed } from 'vue';
   export default {
-    data: () => ({
-      noteResponse: null,
-    }),
-    computed: {
-    username() {
-      const store = useStore();
-      return store.state.username;
-    },
+    setup() {
+    const store = useStore();
+    const noteResponse = ref(null);
+
+    const username = computed(() => store.state.username);
+    const id = computed(() => store.state.id);
+
+    // Use async/await to handle the asynchronous behavior
+    const fetchNotes = async () => {
+      try {
+        const notes = await apiService.getNote();
+        // Access the computed id value using `.value`
+        const currentId = id.value;
+        noteResponse.value = notes.filter(note => note.etudiant_id === currentId);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    fetchNotes(); // Call the function to fetch notes
+
+    return { noteResponse, username, id };
   },
-  created(){
-    apiService.getNote()
-     .then(notes => {
-          this.noteResponse = notes;
-          this.userNotes = notes.filter(note => note.username === this.username);
-        })
-      .catch(e => {
-        this.errors(e);
-      });
-  }
+  //   data: () => ({
+  //     noteResponse: null,
+  //   }),
+  //   computed: {
+  //   username() {
+  //     const store = useStore();
+  //     return store.state.username;
+  //   },
+  //   id(){
+  //     const store = useStore();
+  //     return store.state.id;
+      
+  //   }
+  // },
+  // created(){
+  //   apiService.getNote()
+  //    .then(notes => {
+  //         //this.noteResponse = notes;
+  //         this.noteResponse = notes.filter(note => note.etudiant_id === this.id);
+  //       })
+  //     .catch(e => {
+  //       this.errors(e);
+  //     });
+  // }
   }
 </script>
 <style>

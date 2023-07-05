@@ -95,6 +95,7 @@
           },
         ],
         Password: '',
+        id:'',
         PasswordRules: [
           value => {
             if (value && value.length >= 6) return true;
@@ -139,7 +140,8 @@
           }
             const credentials = {
             Email: this.Email,
-            Password: this.Password
+            Password: this.Password,
+            id: this.id
           };
           // Recherchez l'utilisateur dans les données d'authentification
           const user = this.jsonData.Authentification.find(
@@ -156,10 +158,12 @@
               const emailParts = credentials.Email.split('@'); 
               const username = emailParts[0];
               const Email = this.Email;
+              const id = etudiant.id;
           
               apiService.getLoginApiData(credentials)
                 .then(response => {
                   this.$store.commit('setUsername', username);
+                  this.$store.commit('setId', id);
                   this.$store.commit('setEmail', Email);
                   this.$router.push({name: 'Home'});
                 })
@@ -173,11 +177,13 @@
               const emailParts = credentials.Email.split('@'); 
               const username = emailParts[0];
               const Email = this.Email;
+              const id = professeur.id;
           
               apiService.getLoginApiData(credentials)
                 .then(response => {
                   this.$store.commit('setUsername', username);
                   this.$store.commit('setEmail', Email);
+                  this.$store.commit('setId', id);
                   this.$router.push({name: 'Home'});
                 })
                 .catch(error => {
