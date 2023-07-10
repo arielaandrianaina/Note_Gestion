@@ -10,6 +10,20 @@ export default {
           throw error;
         });
     },
+    getMatiereNames() {
+      return axios.get(`${API_BASE_URL}/matieres`)
+        .then(response => response.data)
+        .catch(error => {
+          throw error;
+        });
+    },
+    getProfessors() {
+      return axios.get(`${API_BASE_URL}/professeurs`)
+        .then(response => response.data)
+        .catch(error => {
+          throw error;
+        });
+    },
     registerApiData(register) {
       return axios.post(`${API_BASE_URL}/Authentification`, register)
         .then(response => response.data)
