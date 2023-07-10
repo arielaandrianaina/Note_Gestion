@@ -7,7 +7,7 @@ const store = createStore({
     Email:'',
     id:'',
     isAuthenticated: false,
-    userData: null,
+    user: null,
     isLoggedIn: false,
     userRole: '', // Initialize as an empty string
   },
@@ -30,7 +30,7 @@ const store = createStore({
 
     },
     clearUserData(state) {
-      state.userData = null; // Réinitialiser les données utilisateur à null ou à une valeur vide selon votre structure de données
+      state.username = null; // Réinitialiser les données utilisateur à null ou à une valeur vide selon votre structure de données
       // Réinitialiser d'autres données utilisateur si nécessaire
     },
     setUserRole(state, role) {

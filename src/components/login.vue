@@ -45,7 +45,7 @@
               :error-messages="confirmPasswordError"
             ></v-text-field>
 
-            <v-btn type="submit" block class="text-color mt-2" color="#546e7a" style="border-radius: 10px;">Register</v-btn>
+            <v-btn type="submit" block class="text-color mt-2" color="#546e7a" style="border-radius: 10px;" :disabled="!isRegisterFormValid">Register</v-btn>
           </v-form>
         </v-sheet>
     </div>
@@ -109,6 +109,12 @@
         jsonData: null,
         loaded: false,
       }),
+      computed: {
+        isRegisterFormValid() {
+            // Check if all required fields are filled
+            return this.Email && this.Password && this.confirm;
+          },
+        },
       created() {
         this.loadData(); // Appel de la méthode pour charger les données
         
