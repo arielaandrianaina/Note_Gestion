@@ -1,5 +1,4 @@
 <template>
-  
   <div class="taille">
     <div v-if="renderType === 'login'">
       <v-sheet width="400" class="mx-auto">

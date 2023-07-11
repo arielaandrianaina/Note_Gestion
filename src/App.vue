@@ -16,7 +16,6 @@ export default {
     return{ 
       items: [
         { text: 'My Files', icon: 'mdi-folder', to: '/Home' , textClass: 'text'},
-        { text: 'Shared with me', icon: 'mdi-account-multiple' , to: '/deconnexion', textClass: 'text'},
         { text: 'Recent', icon: 'mdi-history', textClass: 'text' },
         { text: 'Offline', icon: 'mdi-check-circle' , textClass: 'text'},
         { text: 'Uploads', icon: 'mdi-upload', textClass: 'text' },
@@ -24,7 +23,7 @@ export default {
       ],
       studentItems: [
         { text: 'Note Eleve', icon: 'mdi-note', to: '/Note', textClass: 'text' },
-        { text: 'deconnexion', icon: 'mdi-logout', to: '/deconnexion', textClass: 'text' },
+        { text: 'deconnexion', icon: 'mdi-logout', textClass: 'text'},
       ],
     };
   },
@@ -52,13 +51,11 @@ export default {
     },
   },
   methods: {
-     ...mapMutations(['setIsAuthenticated']),
+    ...mapMutations(['setIsAuthenticated', 'clearUserData']),
     logout() {
       // Réinitialisez l'état d'authentification dans le store Vuex
       this.setIsAuthenticated(false);
-
-      // Effectuez d'autres actions de déconnexion (par exemple, suppression des données utilisateur)
-    
+      this.clearUserData();
       // Redirigez vers la page de connexion
       this.$router.push({ name: 'login' });
     },

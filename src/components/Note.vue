@@ -116,7 +116,7 @@ import { onMounted } from 'vue';
 </style> -->
 <template>
   <div>
-    <h2 class="title">Note de {{ username }}</h2>
+    <h2 class="title">Note de {{ username  }}</h2>
     <v-row justify="center">
       <v-col
         v-for="note in noteResponse"
@@ -139,7 +139,7 @@ import { onMounted } from 'vue';
                 color="teal-accent-1"
                 @click="reveal = true"
               >
-                {{ note.valeur }}
+                {{ note.valeur }}/20
               </v-btn>
             </div>
           </v-card-text>
@@ -153,12 +153,17 @@ import { onMounted } from 'vue';
 import apiService from '../apiService';
 import { useStore } from 'vuex';
 import { ref, computed, onMounted } from 'vue';
+import { mapState } from 'vuex';
 
 export default {
+  computed: {
+    ...mapState('user', ['username', 'id']),
+  },
   setup() {
     const store = useStore();
     const noteResponse = ref(null);
     const matiereNames = ref(null);
+    const getUsername = computed(() => store.state.username);
 
     const username = computed(() => store.state.username);
     const id = computed(() => store.state.id);
@@ -166,7 +171,10 @@ export default {
     const fetchNotes = async () => {
       try {
         const notes = await apiService.getNote();
-        noteResponse.value = notes.filter(note => note.etudiant_id === id.value);
+        const currentId = id.value;
+        noteResponse.value = notes.filter(note => note.etudiant_id === currentId);
+          // Stockez la variable noteResponse dans le local storage
+        localStorage.setItem('noteResponse', JSON.stringify(noteResponse.value));
       } catch (e) {
         console.error(e);
       }
@@ -188,13 +196,22 @@ export default {
       if (matiereNames.value && matiereNames.value[matiereId]) {
         return matiereNames.value[matiereId];
       }
-      return '';
+      return  {
+      getUsername,
+    };
     };
 
-    onMounted(async () => {
-      await fetchNotes();
-      await fetchMatiereNames();
-    });
+    onMounted(() => {
+  // Récupérez les données de note à partir du local storage
+  const storedNoteResponse = localStorage.getItem('noteResponse');
+  if (storedNoteResponse) {
+    noteResponse.value = JSON.parse(storedNoteResponse);
+  } else {
+    fetchNotes();
+  }
+  
+  fetchMatiereNames();
+});
 
     return { noteResponse, username, getMatiereName };
   },

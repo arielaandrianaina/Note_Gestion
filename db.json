@@ -49,6 +49,14 @@
     {
       "id": 2,
       "nom": "Histoire"
+    },
+    {
+      "id": 3,
+      "nom": "Anglais"
+    },
+    {
+      "id": 4,
+      "nom": "Physiques"
     }
   ],
   "notes": [
@@ -75,6 +83,20 @@
       "etudiant_id": 2,
       "matiere_id": 2,
       "valeur": 16
+    }
+    ,
+    {
+      "id": 5,
+      "etudiant_id": 1,
+      "matiere_id": 3,
+      "valeur": 11
+    }
+    ,
+    {
+      "id": 6,
+      "etudiant_id": 1,
+      "matiere_id": 4,
+      "valeur": 9
     }
   ],
   "professeurs": [
